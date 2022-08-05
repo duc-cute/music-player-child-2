@@ -1,0 +1,215 @@
+:root {
+    --primary-color:#ec1f55;
+    --text-color:#333;
+}
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: inherit;
+}
+body {
+    background: linear-gradient(-45deg,#ee7752,rgb(255, 238, 222),#23a6d5,#23d5ab);
+
+    background-size: 400% 400%;
+    animation: gradient 12s ease infinite;
+    height: 100vh;
+
+}
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+html {
+    box-sizing: border-box;
+    font-family: "Poppins",sans-serif;
+}
+.player .icon-pause {
+    display: none;
+}
+.player.playing .icon-pause {
+    display:inline-block;
+}
+.player.playing .icon-play {
+    display:none;
+}
+.player {
+    max-width: 480px;
+    margin: 0 auto;
+}
+
+.dashboard {
+    position: fixed;
+    top:0;
+    width: 100%;
+    max-width: 480px;
+    border-bottom: 1px solid #ebebeb;
+    padding: 16px 36px 14px;
+    background-color: #fff;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    /* background-image:url('/music_player/img/thumbnail_large-1\(12\).jpg') ; */
+
+}
+.dashboard .header {
+    text-align: center;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+.dashboard .header h2 {
+    font-size: 12px;
+    color: var(--primary-color);
+}
+.dashboard .header h4 {
+    font-size: 20px;
+    color: var(--text-color);
+    text-transform: uppercase;
+    margin-top: 8px;
+}
+.dashboard .cd {
+    display: flex;
+    margin: auto;
+    width: 200px;
+}
+.dashboard .cd .cd-thumb {
+    width: 100%;
+    padding-top: 100%;
+    border-radius: 50%;
+    background-color: #333;
+    background-size: cover;
+    background-position: center;
+
+}
+.dashboard .controls {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 16px 0 8px 0;
+}
+.controls .btn {
+    color: #666;
+    font-size: 22px;
+    padding: 12px;
+}
+.controls .btn.active {
+    /* color: var(--primary-color); */
+    background: -webkit-linear-gradient(90deg, #ff86b2 25%, #bc77e4 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+}
+.controls .btn-toggle-play {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    /* background-color: var(--primary-color); */
+    background: -webkit-linear-gradient(90deg, #ff86b2 25%, #bc77e4 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    font-size: 46px;
+    /* color:#fff; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.controls .btn-toggle-play.playing {
+   box-shadow: 0 0 6px var(--primary-color);
+}
+.controls .btn-next:active,
+.controls .btn-prev:active {
+    background: -webkit-linear-gradient(90deg, #ff86b2 25%, #bc77e4 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.progress {
+    position: relative;
+    width: 100%;
+    height: 6px;
+    outline: none;
+    background-color: #d3d3d3;
+    opacity: 0.7;
+    -webkit-appearance:none;
+    border-radius: 4px;
+}
+.progress::-webkit-slider-thumb {
+    -webkit-appearance:none;
+    appearance: none;
+    height: 10px;
+    width: 10px;
+    background-color: var(--primary-color);
+    cursor: pointer;
+    /* border-top-left-radius: 4px; */
+    /* border-bottom-left-radius: 4px; */
+    border-radius: 50%;
+}
+
+.playlist {
+    margin-top: 416px;
+    padding: 12px;
+    user-select: none;
+}
+.playlist .song {
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    padding: 8px 16px;
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+    margin-bottom: 8px;
+    border-radius: 4px;
+    padding: 8px 16px;
+}
+.song.active {
+    background-color: var(--primary-color);
+}
+.song.active .body .title,
+.song.active .body .author,
+.song.active .option {
+    color: #fff;
+}
+
+.song:active {
+    opacity: 0.8;
+}
+.song .thumb {
+    width:44px;
+    height: 44px;
+    border-radius: 50%;
+    margin: 0 8px;
+    background-size: cover;
+    background-position: center;
+}
+.song .body {
+    flex: 1;
+    padding: 0 16px;
+}
+.song .body .title{
+    font-weight: 500;
+    font-size: 16px;
+    color: var(--text-color);
+    text-transform: uppercase;
+}
+.song .body .author{
+    font-size: 12px;
+    color: #999;
+}
+.song .option {
+    font-size: 24px;
+    color: #999;
+    padding: 12px 6px;
+}
+
+
+
